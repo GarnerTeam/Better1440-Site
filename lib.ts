@@ -51,10 +51,11 @@ export const APPS: App[] = [
     id: "launch5",
     name: "Launch5",
     status: "beta",
-    headline: "From accepted offer to closing day, with no missed dates.",
+    headline: "Every transaction, from the first signature to closing day.",
     body:
-      "Launch5 runs the whole file. The accepted offer comes over from Analyze with every Key Date filled in, deadline confirmations go to the lender and title by email, and your contacts stay in step with Dotloop.",
+      "Launch5 manages the whole transaction, starting when the paperwork is first signed. The loop opens in Dotloop, the accepted offer comes over from Analyze with every Key Date filled in, deadline confirmations go to the lender and title by email, and nothing is dropped on the way to closing.",
     points: [
+      "Starts at signing: the loop and contacts set up in Dotloop",
       "Key Dates set from the accepted offer",
       "One-click confirmation emails for every deadline",
       "Contacts kept in sync with Dotloop in both directions",

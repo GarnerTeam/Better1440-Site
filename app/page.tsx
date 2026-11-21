@@ -1,5 +1,5 @@
 import { APPS, LEGAL, MORE, STATUS_LABEL, type App } from "@/lib";
-import { Dial } from "@/components/dial";
+import { ClientFolder, ContractPacket, KeyDatesSheet } from "@/components/paperwork";
 import { VideoSlot } from "@/components/video-slot";
 import { WaitlistForm } from "@/components/waitlist-form";
 
@@ -20,13 +20,13 @@ export default function Home() {
           <div className="hero-copy">
             <h1>There are 1,440 minutes in every day.</h1>
             <p className="lede">
-              Better1440 makes apps for real estate agents that hand some of them back: read offers in minutes, run every
-              file from contract to close, and keep up with the people who send you business.
+              Better1440 makes apps for real estate agents that hand some of them back: read offers in minutes, manage every
+              transaction from the first signature to closing day, and keep up with the people who send you business.
             </p>
             <a className="btn btn-mint" href="#apps">See the apps</a>
           </div>
           <div className="hero-art">
-            <Dial />
+            <ContractPacket />
           </div>
         </div>
       </header>
@@ -67,7 +67,15 @@ function AppRow({ app, flip }: { app: App; flip: boolean }) {
   return (
     <section id={app.id} className={`app wrap${flip ? " app-flip" : ""}`} aria-labelledby={`${app.id}-name`}>
       <div className="app-media">
-        <VideoSlot video={app.video} appName={app.name} />
+        {app.video ? (
+          <VideoSlot video={app.video} appName={app.name} />
+        ) : app.id === "launch5" ? (
+          <KeyDatesSheet />
+        ) : app.id === "relationships" ? (
+          <ClientFolder />
+        ) : (
+          <VideoSlot video={null} appName={app.name} />
+        )}
       </div>
       <div className="app-copy">
         <div className="app-title">
