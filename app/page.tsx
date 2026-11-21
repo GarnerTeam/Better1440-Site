@@ -1,0 +1,95 @@
+import { APPS, LEGAL, MORE, STATUS_LABEL, type App } from "@/lib";
+import { Dial } from "@/components/dial";
+import { VideoSlot } from "@/components/video-slot";
+import { WaitlistForm } from "@/components/waitlist-form";
+
+export default function Home() {
+  return (
+    <>
+      <a className="skip" href="#apps">Skip to the apps</a>
+      <header className="hero">
+        <nav className="nav wrap">
+          <a className="logo" href="/">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img src="/icon-1440-192.png" alt="" width={32} height={32} />
+            Better1440
+          </a>
+          <a className="nav-link" href={LEGAL.signIn}>Sign in</a>
+        </nav>
+        <div className="hero-body wrap">
+          <div className="hero-copy">
+            <h1>There are 1,440 minutes in every day.</h1>
+            <p className="lede">
+              Better1440 makes apps for real estate agents that hand some of them back: read offers in minutes, run every
+              file from contract to close, and keep up with the people who send you business.
+            </p>
+            <a className="btn btn-mint" href="#apps">See the apps</a>
+          </div>
+          <div className="hero-art">
+            <Dial />
+          </div>
+        </div>
+      </header>
+
+      <main id="apps" className="apps">
+        {APPS.map((app, i) => (
+          <AppRow key={app.id} app={app} flip={i % 2 === 1} />
+        ))}
+
+        <section className="more wrap" aria-labelledby="more-title">
+          <div className="more-inner">
+            <h2 id="more-title">Also in the works</h2>
+            <ul>
+              {MORE.map((m) => (
+                <li key={m.name}>
+                  <strong>{m.name}</strong> {m.body}
+                </li>
+              ))}
+            </ul>
+          </div>
+        </section>
+      </main>
+
+      <footer className="footer">
+        <div className="wrap footer-row">
+          <span>© {new Date().getFullYear()} Better1440</span>
+          <nav aria-label="Legal">
+            <a href={LEGAL.terms}>Terms</a>
+            <a href={LEGAL.privacy}>Privacy</a>
+          </nav>
+        </div>
+      </footer>
+    </>
+  );
+}
+
+function AppRow({ app, flip }: { app: App; flip: boolean }) {
+  return (
+    <section id={app.id} className={`app wrap${flip ? " app-flip" : ""}`} aria-labelledby={`${app.id}-name`}>
+      <div className="app-media">
+        <VideoSlot video={app.video} appName={app.name} />
+      </div>
+      <div className="app-copy">
+        <div className="app-title">
+          <h2 id={`${app.id}-name`}>{app.name}</h2>
+          <span className={`status status-${app.status}`}>{STATUS_LABEL[app.status]}</span>
+        </div>
+        <p className="app-headline">{app.headline}</p>
+        <p className="app-body">{app.body}</p>
+        <ul className="points">
+          {app.points.map((p) => (
+            <li key={p}>{p}</li>
+          ))}
+        </ul>
+        {app.price && <p className="price">{app.price}</p>}
+        {app.waitlist && <WaitlistForm appName={app.name} {...app.waitlist} />}
+        {(app.primary || app.secondary) && (
+          <div className="actions">
+            {app.primary && <a className="btn btn-primary" href={app.primary.href}>{app.primary.label}</a>}
+            {app.secondary && <a className="text-link" href={app.secondary.href}>{app.secondary.label}</a>}
+          </div>
+        )}
+      </div>
+    </section>
+  );
+}
