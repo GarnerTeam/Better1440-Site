@@ -67,7 +67,7 @@ export const APPS: App[] = [
       cta: "Ask to join the beta",
       done: "Thanks. We'll email you when a beta spot opens.",
     },
-    secondary: { label: "Beta testers: sign in", href: "https://launch.garnerteam.com" },
+    secondary: { label: "Beta testers: sign in", href: "https://launch5.better1440.com" },
   },
   {
     id: "relationships",
