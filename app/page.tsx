@@ -14,7 +14,23 @@ export default function Home() {
             <img src="/icon-1440-192.png" alt="" width={32} height={32} />
             Better1440
           </a>
-          <a className="nav-link" href={LEGAL.signIn}>Sign in</a>
+          <details className="signin-menu">
+            <summary className="nav-link">Sign in</summary>
+            <div className="signin-panel" role="menu" aria-label="Sign in to">
+              <a role="menuitem" href={LEGAL.signIn}>
+                <strong>Analyze</strong>
+                <span>Sign in or start free</span>
+              </a>
+              <a role="menuitem" href="https://launch5.better1440.com">
+                <strong>Launch5</strong>
+                <span>Beta testers sign in</span>
+              </a>
+              <a role="menuitem" href="#relationships">
+                <strong>Relationships</strong>
+                <span>Not open yet. Join the waiting list</span>
+              </a>
+            </div>
+          </details>
         </nav>
         <div className="hero-body wrap">
           <div className="hero-copy">

@@ -56,6 +56,19 @@ a { color: inherit; }
 .logo { font-variant-numeric: lining-nums; display: inline-flex; align-items: center; gap: 10px; font-family: var(--slab); font-weight: 700; font-size: 22px; text-decoration: none; }
 .logo img { border-radius: 8px; }
 .nav-link { color: rgba(255, 255, 255, 0.82); text-decoration: none; font-weight: 500; }
+.signin-menu { position: relative; }
+.signin-menu summary { list-style: none; cursor: pointer; }
+.signin-menu summary::-webkit-details-marker { display: none; }
+.signin-menu summary::after { content: " ▾"; font-size: 0.8em; }
+.signin-panel {
+  position: absolute; right: 0; top: calc(100% + 10px); z-index: 20; width: 260px;
+  background: var(--white); color: var(--pine-deep); border-radius: 10px; padding: 6px;
+  box-shadow: 0 20px 40px -18px rgba(15, 39, 34, 0.55);
+}
+.signin-panel a { display: grid; gap: 2px; padding: 10px 12px; border-radius: 7px; text-decoration: none; color: inherit; }
+.signin-panel a:hover, .signin-panel a:focus-visible { background: var(--fog, #eef2ef); }
+.signin-panel strong { font-weight: 700; }
+.signin-panel span { font-size: 0.875rem; opacity: 0.75; }
 .nav-link:hover { color: var(--white); text-decoration: underline; text-underline-offset: 4px; }
 
 .hero-body {
