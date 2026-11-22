@@ -16,6 +16,8 @@ export interface App {
   id: string;
   name: string;
   status: Status;
+  /** One short line for the app cards under the opening section. */
+  short: string;
   headline: string;
   body: string;
   points: string[];
@@ -33,6 +35,7 @@ export const APPS: App[] = [
     id: "analyze",
     name: "Analyze",
     status: "ready",
+    short: "Reads and compares every offer on your listing.",
     headline: "Every offer, read and compared in minutes.",
     body:
       "Upload the purchase contracts you receive. Analyze pulls out every term, flags what to watch, estimates your seller's net on each offer, and builds a report you can put in front of your seller.",
@@ -51,6 +54,7 @@ export const APPS: App[] = [
     id: "launch5",
     name: "Launch5",
     status: "beta",
+    short: "Runs each transaction from the first signature to closing.",
     headline: "Every transaction, from the first signature to closing day.",
     body:
       "Launch5 manages the whole transaction, starting when the paperwork is first signed. The loop opens in Dotloop, the accepted offer comes over from Analyze with every Key Date filled in, deadline confirmations go to the lender and title by email, and nothing is dropped on the way to closing.",
@@ -73,6 +77,7 @@ export const APPS: App[] = [
     id: "relationships",
     name: "Relationships",
     status: "soon",
+    short: "Tells you who to reach out to today, and why.",
     headline: "A short list each morning of people worth reaching out to, and why.",
     body:
       "Birthdays, wedding and home anniversaries, a child turning 18: Relationships turns what you know about past clients into a few reasons to reach out today, each with a message drafted and ready. Nothing is ever sent for you.",

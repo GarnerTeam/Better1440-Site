@@ -32,8 +32,19 @@ export default function Home() {
       </header>
 
       <main id="apps" className="apps">
+        <nav className="lineup wrap" aria-label="The three apps">
+          {APPS.map((app) => (
+            <a key={app.id} href={`#${app.id}`} className={`lineup-card lineup-${app.status}`}>
+              <span className="lineup-name">{app.name}</span>
+              <span className={`status status-${app.status}`}>{STATUS_LABEL[app.status]}</span>
+              <span className="lineup-short">{app.short}</span>
+              <span className="lineup-go">See {app.name}</span>
+            </a>
+          ))}
+        </nav>
+
         {APPS.map((app, i) => (
-          <AppRow key={app.id} app={app} flip={i % 2 === 1} />
+          <AppRow key={app.id} app={app} flip={i % 2 === 1} shade={i % 2 === 0 ? "paper" : "fog"} />
         ))}
 
         <section className="more wrap" aria-labelledby="more-title">
@@ -63,9 +74,13 @@ export default function Home() {
   );
 }
 
-function AppRow({ app, flip }: { app: App; flip: boolean }) {
+function AppRow({ app, flip, shade }: { app: App; flip: boolean; shade: "paper" | "fog" }) {
   return (
-    <section id={app.id} className={`app wrap${flip ? " app-flip" : ""}`} aria-labelledby={`${app.id}-name`}>
+    <section id={app.id} className={`band band-${shade}`} aria-labelledby={`${app.id}-name`}>
+      <div className="wrap band-head" aria-hidden>
+        <span className="band-tab">{app.name}</span>
+      </div>
+      <div className={`app wrap${flip ? " app-flip" : ""}`}>
       <div className="app-media">
         {app.video ? (
           <VideoSlot video={app.video} appName={app.name} />
@@ -97,6 +112,7 @@ function AppRow({ app, flip }: { app: App; flip: boolean }) {
             {app.secondary && <a className="text-link" href={app.secondary.href}>{app.secondary.label}</a>}
           </div>
         )}
+      </div>
       </div>
     </section>
   );
