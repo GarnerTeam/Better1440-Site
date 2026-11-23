@@ -46,7 +46,7 @@ export const APPS: App[] = [
       "A seller-ready PDF with your logo and contact details",
     ],
     video: { id: "wXi0bzE5zDs", title: "Stop Reading Offers by Hand | Better1440 Analyze for Listing Agents" },
-    price: "Start free, then $39 a month.",
+    price: "Start free, then $29 a month.",
     primary: { label: "Start free", href: "https://analyze.better1440.com/sign-up" },
     secondary: { label: "See pricing", href: "https://analyze.better1440.com/pricing" },
   },
@@ -66,6 +66,7 @@ export const APPS: App[] = [
       "Includes Analyze",
     ],
     video: null,
+    price: "With Analyze, $49 a month when the beta opens.",
     waitlist: {
       source: "launch5-beta",
       cta: "Ask to join the beta",
@@ -88,6 +89,7 @@ export const APPS: App[] = [
       "Open house sign-in by QR code",
     ],
     video: null,
+    price: "With Analyze and Launch5, $69 a month when it opens.",
     waitlist: {
       source: "relationships",
       cta: "Join the waiting list",
